@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/wso2-ballerina/module-smb.svg?branch=master)](https://travis-ci.org/wso2-ballerina/module-smb)
+Connects to a Samba server using Ballerina.
 
 ## Module Overview
 
@@ -151,28 +151,19 @@ public function main() {
                 return;
             }
             var closeResult = characters.close();
-            if (closeResult is error) {
-                log:printError("Error occurred while closing the channel", err);
-            }
         }
     } else {
         log:printError("Error occured in retrieving content.", getResult);
         return;
     }
     
-    // Rename or move remote file to a another remote location in a same SMB server.
+    // Rename or move remote file to a another remote location in a same SMB server
     error? renameErr = smbClient->rename("<The source file path>", "<The destination file path>");
-    if (renameErr is error) {
-        log:printError("Error occurred while renaming the file", renameErr);
-    }
     
-    // Delete remote file.
+    // Delete remote file
     error? fileDelCreErr = smbClient->delete("<The resource path>");
-    if (fileDelCreErr is error) {
-        log:printError("Error occurred while deleting a file", fileDelCreErr);
-    }
-
-    // Remove directory from remote server.
+    
+    // Remove directory from remote server
     var result = smbClient->rmdir("<The directory path>");
     if (result is error) {
         io:println("Error occured in removing directory.", result); 
