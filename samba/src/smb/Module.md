@@ -1,26 +1,12 @@
-[![Build Status](https://travis-ci.org/wso2-ballerina/module-smb.svg?branch=master)](https://travis-ci.org/wso2-ballerina/module-smb)
+Connects to a Samba server using Ballerina.
 
-## Module Overview
+# Module Overview
 
 The `wso2/smb` module provides an SMB client and an SMB server listener implementation to facilitate an SMB connection 
 to a remote location.
 
-The following sections provide you details on how to use the SMB connector.
+**SMB Client**
 
-- [Compatibility](#compatibility)
-- [Feature Overview](#feature-overview)
-- [Getting Started](#getting-started)
-- [Samples](#samples)
-
-## Compatibility
-
-| Ballerina Language Version  |
-|:---------------------------:|
-|  1.0.0                     |
-
-## Feature Overview
-
-### SMB Client
 The `smb:Client` connects to an SMB server and performs various operations on the files. Currently, it supports the 
 generic SMB operations; `get`, `delete`, `put`, `append`, `mkdir`, `rmdir`, `isDirectory`,  `rename`, `size`, and
  `list`.
@@ -29,7 +15,8 @@ An SMB client endpoint is defined using the parameters `protocol` and `host`, an
 `secureSocket`. Authentication configuration can be configured using the `secureSocket` parameter for basicAuth, 
 private key, or TrustStore/Keystore.
 
-### SMB Listener
+**SMB Listener**
+
 The `smb:Listener` is used to listen to a remote SMB location and trigger an event of `WatchEvent` type, when new 
 files are added to or deleted from the directory. The `fileResource` function is invoked when a new file is added 
 and/or deleted.
@@ -41,20 +28,16 @@ Default polling interval is 60 seconds.
 The `fileNamePattern` parameter can be used to define the type of files the SMB listener endpoint will listen to. 
 For instance, if the listener should get invoked for text files, the value `(.*).txt` can be given for the config.
 
-## Getting Started
+## Compatibility
 
-### Prerequisites
-Download and install [Ballerina](https://ballerinalang.org/downloads/).
-
-### Pull the Module
-You can pull the SMB module from Ballerina Central using the command:
-```ballerina
-$ ballerina pull wso2/smb
-```
+|                             |           Version           |
+|:---------------------------:|:---------------------------:|
+| Ballerina Language          |            1.0.0            |
 
 ## Samples
 
-### SMB Listener Sample
+**SMB Listener Sample**
+
 The SMB Listener can be used to listen to a remote directory. It will keep listening to the specified directory and 
 periodically notify the files that are added to and deleted from the server.
 
@@ -90,7 +73,8 @@ service smbServerConnector on remoteServer {
 }
 ```
 
-### SMB Client Sample
+**SMB Client Sample**
+
 The SMB Client Connector can be used to connect to an SMB server and perform I/O operations.
 
 ```ballerina
