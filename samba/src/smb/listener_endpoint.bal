@@ -54,7 +54,7 @@ public type Listener object {
     }
 
     public function __gracefulStop() returns error? {
-
+        check self.stop();
     }
 
     function start() returns error? {

@@ -78,9 +78,9 @@ listener smb:Listener remoteServer = new({
 });
 
 service smbServerConnector on remoteServer {
-    resource function fileResource(WatchEvent m) {
+    resource function fileResource(smb:WatchEvent m) {
 
-        foreach FileInfo v1 in m.addedFiles {
+        foreach smb:FileInfo v1 in m.addedFiles {
             log:printInfo("Added file path: " + v1.path);
         }
         foreach string v1 in m.deletedFiles {
