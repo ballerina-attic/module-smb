@@ -1,0 +1,19 @@
+[project]
+org-name= "wso2"
+version= "0.3.0"
+license= ["Apache-2.0"]
+authors= ["WSO2"]
+keywords= ["smb", "samba"]
+repository= "https://github.com/wso2-ballerina/module-smb"
+
+[dependencies]
+
+[platform]
+target = "java8"
+
+    [[platform.libraries]]
+    module = "smb"
+    path = "../smb-utils/target/smb-utils-module-0.3.0.jar"
+    artifactId = "smb-utils"
+    version = "0.3.0"
+    groupId = "org.wso2.ei"
