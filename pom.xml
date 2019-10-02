@@ -24,7 +24,7 @@
     <groupId>org.wso2.ei</groupId>
     <artifactId>module-smb</artifactId>
     <packaging>pom</packaging>
-    <version>0.3.0</version>
+    <version>0.3.1</version>
     <name>Ballerina - SMB Module Parent</name>
 
     <modules>
@@ -193,7 +193,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <ballerina.version>1.0.0</ballerina.version>
-        <module.smb.version>0.3.0</module.smb.version>
+        <module.smb.version>0.3.1</module.smb.version>
 
         <commons-vfs2.wso2.version>2.2-wso2v2</commons-vfs2.wso2.version>
         <file.transport.version>6.0.57</file.transport.version>
