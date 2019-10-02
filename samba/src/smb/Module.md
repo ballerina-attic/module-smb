@@ -32,7 +32,7 @@ For instance, if the listener should get invoked for text files, the value `(.*)
 
 |                             |           Version           |
 |:---------------------------:|:---------------------------:|
-| Ballerina Language          |            1.0.0            |
+| Ballerina Language          |            1.0.1            |
 
 ## Samples
 
@@ -140,6 +140,7 @@ public function main() {
             var closeResult = characters.close();
             if (closeResult is error) {
                 log:printError("Error occurred while closing the channel", closeResult);
+                return;
             }
         }
     } else {
@@ -151,18 +152,21 @@ public function main() {
     error? renameResponse = smbClient->rename("<The source file path>", "<The destination file path>");
     if (renameResponse is error) {
         log:printError("Error occurred while renaming the file", renameResponse);
+        return;
     }
     
     // Delete remote file
     error? deleteResponse = smbClient->delete("<The resource path>");
     if (deleteResponse is error) {
         log:printError("Error occurred while deleting a file", deleteResponse);
+        return;
     }
 
     // Remove directory from remote server
     var rmdirResponse = smbClient->rmdir("<The directory path>");
     if (rmdirResponse is error) {
         io:println("Error occured in removing directory.", rmdirResponse); 
+        return;
     }
 }
 ```
