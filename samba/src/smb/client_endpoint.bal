@@ -44,8 +44,7 @@ public type Client client object {
     # an `error` if failed to establish communication with the Samba server or read the resource
     public remote function get(string path) returns io:ReadableByteChannel|error {
         handle resourcePath = java:fromString(path);
-        io:ReadableByteChannel|error response = get(self, resourcePath);
-        return response;
+        return get(self, resourcePath);
     }
 
     # The `append()` function can be used to append content to an existing file in a Samba server.
@@ -73,8 +72,7 @@ public type Client client object {
     # + return -  An `error` if failed to establish communication with the Samba server
     public remote function delete(string path) returns error? {
         handle resourcePath = java:fromString(path);
-        error? response = delete(self, resourcePath);
-        return response;
+        return delete(self, resourcePath);
     }
 
     # The `mkdir()` function can be used to create a new direcotry in a Samba server.
@@ -83,8 +81,7 @@ public type Client client object {
     # + return - An `error` if failed to establish communication with the Samba server
     public remote function mkdir(string path) returns error? {
         handle resourcePath = java:fromString(path);
-        error? response = mkdir(self, resourcePath);
-        return response;
+        return mkdir(self, resourcePath);
     }
 
     # The `rmdir()` function can be used to delete an empty directory in a Samba server.
@@ -93,8 +90,7 @@ public type Client client object {
     # + return - An `error` if failed to establish communication with the Samba server
     public remote function rmdir(string path) returns error? {
         handle resourcePath = java:fromString(path);
-        error? response = rmdir(self, resourcePath);
-        return response;
+        return rmdir(self, resourcePath);
     }
 
     # The `rename()` function can be used to rename a file or move to a new location within the same Samba server.
@@ -105,8 +101,7 @@ public type Client client object {
     public remote function rename(string origin, string destination) returns error? {
         handle originPath = java:fromString(origin);
         handle destinationPath = java:fromString(destination);
-        error? response = rename(self, originPath, destinationPath);
-        return response;
+        return rename(self, originPath, destinationPath);
     }
 
     # The `size()` function can be used to get the size of a file resource.
@@ -115,8 +110,7 @@ public type Client client object {
     # + return - The file size in bytes or an `error` if failed to establish communication with the Samba server
     public remote function size(string path) returns int|error {
         handle resourcePath = java:fromString(path);
-        int|error response = size(self, resourcePath);
-        return response;
+        return size(self, resourcePath);
     }
 
     # The `list()` function can be used to get the file name list in a given folder.
@@ -125,8 +119,7 @@ public type Client client object {
     # + return - An array of file names or an `error` if failed to establish communication with the Samba server
     public remote function list(string path) returns FileInfo[]|error {
         handle resourcePath = java:fromString(path);
-        FileInfo[]|error response = list(self, resourcePath);
-        return response;
+        return list(self, resourcePath);
     }
 
     # The `isDirectory()` function can be used to check if a given resource is a direcotry.
@@ -135,8 +128,7 @@ public type Client client object {
     # + return - true if given resource is a direcotry or an `error` if failed to connect with the Samba server
     public remote function isDirectory(string path) returns boolean|error {
         handle resourcePath = java:fromString(path);
-        boolean|error response = isDirectory(self, resourcePath);
-        return response;
+        return isDirectory(self, resourcePath);
     }
 };
 
@@ -168,6 +160,5 @@ function getInputContent(string path, io:ReadableByteChannel|string|xml|json con
     } else {
         inputContent.textContent = content.toString();
     }
-
     return inputContent;
 }

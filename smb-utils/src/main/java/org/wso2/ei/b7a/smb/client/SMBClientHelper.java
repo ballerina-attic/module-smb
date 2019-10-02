@@ -109,7 +109,7 @@ class SMBClientHelper {
                 fileInfoParams.put(SmbConstants.LAST_MODIFIED_TIMESTAMP, fileInfo.getLastModifiedTime());
                 fileInfoParams.put("name", fileInfo.getBaseName());
                 fileInfoParams.put("isFolder", fileInfo.isFolder());
-                fileInfoParams.put("isFile", fileInfo.isFile());
+                fileInfoParams.put(SmbConstants.INPUT_CONTENT_IS_FILE_KEY, fileInfo.isFile());
                 fileInfoParams.put("extension", fileInfo.getFileName().getExtension());
                 fileInfoParams.put("publicURIString", fileInfo.getPublicURIString());
                 fileInfoParams.put("fileType", fileInfo.getFileType().getName());

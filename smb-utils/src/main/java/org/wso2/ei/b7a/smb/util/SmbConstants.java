@@ -41,6 +41,7 @@ public class SmbConstants {
     public static final String SMB_ORG_NAME = "wso2";
     public static final String SMB_MODULE_NAME = "smb";
     public static final String SMB_MODULE_VERSION = "0.3.0";
+    public static final String SMB_LISTENER = "Listener";
     public static final String SMB_SERVER_EVENT = "WatchEvent";
     public static final String SMB_FILE_INFO = "FileInfo";
     public static final String SMB_SERVER_CONNECTOR = "serverConnector";
@@ -52,9 +53,8 @@ public class SmbConstants {
     public static final String ENDPOINT_CONFIG_PASS_KEY = "password";
     public static final String ENDPOINT_CONFIG_PATH = "path";
     public static final String ENDPOINT_CONFIG_FILE_PATTERN = "fileNamePattern";
-    public static final String ENDPOINT_CONFIG_FILE_PATH = "path";
     public static final String ENDPOINT_CONFIG_SECURE_SOCKET = "secureSocket";
-    public static final String ENDPOINT_CONFIG_BASIC_AUTH = "basicAuth";
+    static final String ENDPOINT_CONFIG_BASIC_AUTH = "basicAuth";
     public static final String ENDPOINT_CONFIG_PRIVATE_KEY = "privateKey";
 
     public static final String INPUT_CONTENT_FILE_PATH_KEY = "filePath";

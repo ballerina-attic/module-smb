@@ -38,14 +38,17 @@ import java.util.List;
  * Abstract Compiler plugin for validating SMB Listener services
  */
 @SupportedResourceParamTypes(expectedListenerType = @SupportedResourceParamTypes.Type(
-        orgName = "wso2",
-        packageName = "smb",
-        name = "Listener"),
+        orgName = SmbConstants.SMB_ORG_NAME,
+        packageName = SmbConstants.SMB_MODULE_NAME,
+        name = SmbConstants.SMB_LISTENER),
         paramTypes = {
-                @SupportedResourceParamTypes.Type(orgName = "wso2", packageName = "smb", name = "WatchEvent")
+                @SupportedResourceParamTypes.Type(
+                        orgName = SmbConstants.SMB_ORG_NAME,
+                        packageName = SmbConstants.SMB_MODULE_NAME,
+                        name = SmbConstants.SMB_SERVER_EVENT)
         }
 )
-public class ServiceCompilerPlugin extends AbstractTransportCompilerPlugin {
+public class SMBCompilerPlugin extends AbstractTransportCompilerPlugin {
 
     private DiagnosticLog dlog = null;
 
@@ -58,6 +61,7 @@ public class ServiceCompilerPlugin extends AbstractTransportCompilerPlugin {
     @Override
     public void process(ServiceNode serviceNode, List<AnnotationAttachmentNode> annotations) {
 
+        @SuppressWarnings("unchecked")
         List<BLangFunction> resources = (List<BLangFunction>) serviceNode.getResources();
         if (resources.isEmpty()) {
             dlog.logDiagnostic(Diagnostic.Kind.ERROR, serviceNode.getPosition(),
