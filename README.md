@@ -14,9 +14,9 @@ The following sections provide you details on how to use the SMB connector.
 
 ## Compatibility
 
-| Ballerina Language Version  |
-|:---------------------------:|
-|  1.0.0                     |
+|                             |           Version           |
+|:---------------------------:|:---------------------------:|
+| Ballerina Language          |            1.0.0            |
 
 ## Feature Overview
 

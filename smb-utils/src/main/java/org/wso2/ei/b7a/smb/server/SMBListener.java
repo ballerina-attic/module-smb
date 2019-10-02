@@ -93,8 +93,7 @@ public class SMBListener implements RemoteFileSystemListener {
         // For deleted files
         ArrayValue deletedFiles = new ArrayValue(BTypes.typeString);
         for (int i = 0; i < deletedFileList.size(); i++) {
-            String fileName = deletedFileList.get(i);
-            deletedFiles.add(i, fileName);
+            deletedFiles.add(i, deletedFileList.get(i));
         }
         // WatchEvent
         return BallerinaValues

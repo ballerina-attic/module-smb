@@ -45,12 +45,15 @@ public function testReadContent() {
                 log:printInfo("Initial content in file: " + content);
                 log:printInfo("Executed Get operation");
             } else {
-                log:printError("Error in reading retrieved content: ", content);
+                log:printError("Error in reading retrieved content", content);
             }
             var closeResult = characters.close();
+            if (closeResult is error) {
+                log:printError("Error occurred while closing the channel", closeResult);
+            }
         }
     } else {
-        log:printError("Error in retrieving content: ", response);
+        log:printError("Error in retrieving content", response);
     }
 }
 
@@ -62,12 +65,12 @@ public function testAppendContent() {
     if(byteChannel is io:ReadableByteChannel){
         error? response = clientEP -> append(filePath, byteChannel);
         if(response is error) {
-            log:printError("Error in editing file:", response);
+            log:printError("Error in editing file", response);
         } else {
             log:printInfo("Executed Append operation");
         }
     } else {
-        log:printError("Error in reading input file:", byteChannel);
+        log:printError("Error in reading input file", byteChannel);
     }
 }
 
@@ -82,7 +85,7 @@ public function testPutFileContent() {
         if(response is error) {
             log:printError("Error in put operation", response);
         }
-        log:printInfo("Executed Put operation.");
+        log:printInfo("Executed Put operation");
     } else {
         log:printInfo("Error in reading input file");
     }
@@ -96,8 +99,9 @@ public function testPutTextContent() {
     error? response = clientEP -> put(filePath, textToPut);
     if(response is error) {
         log:printError("Error in put operation", response);
+    } else {
+        log:printInfo("Executed Put operation");
     }
-    log:printInfo("Executed Put operation.");
 }
 
 //@test:Config{
@@ -108,8 +112,9 @@ public function testPutJsonContent() {
     error? response = clientEP -> put(filePath, jsonToPut);
     if(response is error) {
         log:printError("Error in put operation", response);
+    } else {
+        log:printInfo("Executed Put operation");
     }
-    log:printInfo("Executed Put operation.");
 }
 
 //@test:Config{
@@ -125,8 +130,9 @@ public function testPutXMLContent() {
     error? response = clientEP -> put(filePath, xmlToPut);
     if(response is error) {
         log:printError("Error in put operation", response);
+    } else {
+        log:printInfo("Executed Put operation");
     }
-    log:printInfo("Executed Put operation.");
 }
 
 //@test:Config{
@@ -138,7 +144,7 @@ public function testIsDirectory() {
         log:printInfo("Is directory: " + response.toString());
         log:printInfo("Executed Is directory operation");
     } else {
-        log:printError("Error in reading isDirectory: ", response);
+        log:printError("Error in reading isDirectory", response);
     }
 }
 
@@ -148,7 +154,7 @@ public function testIsDirectory() {
 public function testCreateDirectory() {
     error? response = clientEP -> mkdir(sambaShare + "/out");
     if(response is error) {
-        log:printError("Error in creating directory: ", response);
+        log:printError("Error in creating directory", response);
     } else {
         log:printInfo("Executed Mkdir operation");
     }
@@ -162,7 +168,7 @@ public function testRenameDirectory() {
     string newName = sambaShare + "/test";
     error? response = clientEP -> rename(existingName, newName);
     if(response is error) {
-        log:printError("Error in renaming directory: ", response);
+        log:printError("Error in renaming directory", response);
     } else {
         log:printInfo("Executed Rename operation");
     }
@@ -177,7 +183,7 @@ public function testGetFileSize() {
         log:printInfo("Size: "+response.toString());
         log:printInfo("Executed size operation");
     } else {
-        log:printError("Error in getting file size: ", response);
+        log:printError("Error in getting file size", response);
     }
 }
 
@@ -187,13 +193,13 @@ public function testGetFileSize() {
 public function testListFiles() {
     FileInfo[]|error response = clientEP -> list(sambaShare);
     if (response is FileInfo[]) {
-        log:printInfo("List of files/directories: ");
+        log:printInfo("List of files/directories");
         foreach var fileInfo in response {
             log:printInfo(fileInfo.toString());
         }
         log:printInfo("Executed List operation");
     } else {
-        log:printError("Error in getting file list: ", response);
+        log:printError("Error in getting file list", response);
     }
 }
 
@@ -203,7 +209,7 @@ public function testListFiles() {
 public function testDeleteFile() {
     error? response = clientEP -> delete(newFilePath);
     if(response is error) {
-        log:printError("Error in deleting file: ", response);
+        log:printError("Error in deleting file", response);
     } else {
         log:printInfo("Executed Delete operation");
     }
@@ -215,8 +221,8 @@ public function testDeleteFile() {
 public function testRemoveDirectory() {
     error? response = clientEP -> rmdir(sambaShare + "/test");
     if(response is error) {
-        log:printError("Error in removing directory: ", response);
+        log:printError("Error in removing directory", response);
     } else {
-        log:printInfo("Executed Rmdir operation.");
+        log:printInfo("Executed Rmdir operation");
     }
 }

@@ -77,7 +77,7 @@ public class SMBListenerHelper {
         if (secureSocket != null) {
             final MapValue privateKey = secureSocket.getMapValue(SmbConstants.ENDPOINT_CONFIG_PRIVATE_KEY);
             if (privateKey != null) {
-                final String privateKeyPath = privateKey.getStringValue(SmbConstants.ENDPOINT_CONFIG_FILE_PATH);
+                final String privateKeyPath = privateKey.getStringValue(SmbConstants.ENDPOINT_CONFIG_PATH);
                 if (privateKeyPath != null && !privateKeyPath.isEmpty()) {
                     params.put(Constants.IDENTITY, privateKeyPath);
                     final String privateKeyPassword = privateKey.getStringValue(SmbConstants.ENDPOINT_CONFIG_PASS_KEY);

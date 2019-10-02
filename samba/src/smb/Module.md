@@ -132,9 +132,9 @@ public function main() {
         if (characters is io:ReadableCharacterChannel) {
             var output = characters.read(<No of characters to read>);
             if (output is string) {
-                log:printInfo("File content: "+ output);
+                log:printInfo("File content: " + output);
             } else {
-                log:printError("Error occured in retrieving content.", output);
+                log:printError("Error occured in retrieving content", output);
                 return;
             }
             var closeResult = characters.close();
@@ -143,7 +143,7 @@ public function main() {
             }
         }
     } else {
-        log:printError("Error occured in retrieving content.", getResponse);
+        log:printError("Error occured in retrieving content", getResponse);
         return;
     }
     
