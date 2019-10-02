@@ -13,7 +13,7 @@ target = "java8"
 
     [[platform.libraries]]
     module = "smb"
-    path = "../smb-utils/target/smb-utils-module-0.3.0-SNAPSHOT.jar"
+    path = "../smb-utils/target/smb-utils-module-0.3.0.jar"
     artifactId = "smb-utils"
-    version = "0.3.0-SNAPSHOT"
+    version = "0.3.0"
     groupId = "org.wso2.ei"
