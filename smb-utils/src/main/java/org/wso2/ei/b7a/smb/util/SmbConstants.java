@@ -40,7 +40,7 @@ public class SmbConstants {
     public static final String PROPERTY_MAP = "map";
     public static final String SMB_ORG_NAME = "wso2";
     public static final String SMB_MODULE_NAME = "smb";
-    public static final String SMB_MODULE_VERSION = "0.3.0";
+    public static final String SMB_MODULE_VERSION = "0.3.1";
     public static final String SMB_LISTENER = "Listener";
     public static final String SMB_SERVER_EVENT = "WatchEvent";
     public static final String SMB_FILE_INFO = "FileInfo";

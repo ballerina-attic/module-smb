@@ -1,6 +1,6 @@
 [project]
 org-name= "wso2"
-version= "0.3.0"
+version= "0.3.1"
 license= ["Apache-2.0"]
 authors= ["WSO2"]
 keywords= ["smb", "samba"]
@@ -13,7 +13,7 @@ target = "java8"
 
     [[platform.libraries]]
     module = "smb"
-    path = "../smb-utils/target/smb-utils-module-0.3.0.jar"
+    path = "../smb-utils/target/smb-utils-module-0.3.1.jar"
     artifactId = "smb-utils"
-    version = "0.3.0"
+    version = "0.3.1"
     groupId = "org.wso2.ei"
