@@ -5,7 +5,7 @@
 The `wso2/smb` module provides an SMB client and an SMB server listener implementation to facilitate an SMB connection 
 to a remote location.
 
-The following sections provide you details on how to use the SMB connector.
+The following sections provide details on how to use the SMB connector.
 
 - [Compatibility](#compatibility)
 - [Feature Overview](#feature-overview)
@@ -26,20 +26,20 @@ generic SMB operations; `get`, `delete`, `put`, `append`, `mkdir`, `rmdir`, `isD
  `list`.
 
 An SMB client endpoint is defined using the parameters `protocol` and `host`, and optionally the `port` and 
-`secureSocket`. Authentication configuration can be configured using the `secureSocket` parameter for basicAuth, 
+`secureSocket` parameters. Authentication configuration can be configured using the `secureSocket` parameter for basicAuth, 
 private key, or TrustStore/Keystore.
 
 ### SMB Listener
-The `smb:Listener` is used to listen to a remote SMB location and trigger an event of `WatchEvent` type, when new 
+The `smb:Listener` is used to listen to a remote SMB location and trigger a `WatchEvent` type of event, when new 
 files are added to or deleted from the directory. The `fileResource` function is invoked when a new file is added 
 and/or deleted.
 
-An SMB listener endpoint is defined using the mandatory parameters `protocol`, `host` and  `path`. Authentication 
+An SMB listener endpoint is defined using the mandatory parameters `protocol`, `host`, and  `path`. Authentication 
 configuration can be done using `secureSocket` and polling interval can be configured using `pollingInterval`. 
 Default polling interval is 60 seconds.
 
 The `fileNamePattern` parameter can be used to define the type of files the SMB listener endpoint will listen to. 
-For instance, if the listener should get invoked for text files, the value `(.*).txt` can be given for the config.
+For instance, if the listener gets invoked for text files, the value `(.*).txt` can be given for the config.
 
 ## Getting Started
 
@@ -47,7 +47,7 @@ For instance, if the listener should get invoked for text files, the value `(.*)
 Download and install [Ballerina](https://ballerinalang.org/downloads/).
 
 ### Pull the Module
-You can pull the SMB module from Ballerina Central using the command:
+Pull the SMB module from Ballerina Central using this command:
 ```ballerina
 $ ballerina pull wso2/smb
 ```
@@ -56,7 +56,7 @@ $ ballerina pull wso2/smb
 
 ### SMB Listener Sample
 The SMB Listener can be used to listen to a remote directory. It will keep listening to the specified directory and 
-periodically notify the files that are added to and deleted from the server.
+periodically notify which files are added to and deleted from the server.
 
 ```ballerina
 import ballerina/log;
