@@ -17,16 +17,16 @@ private key, or TrustStore/Keystore.
 
 **SMB Listener**
 
-The `smb:Listener` is used to listen to a remote SMB location and trigger an event of `WatchEvent` type, when new 
+The `smb:Listener` is used to listen to a remote SMB location and trigger a`WatchEvent` type of event when new 
 files are added to or deleted from the directory. The `fileResource` function is invoked when a new file is added 
 and/or deleted.
 
-An SMB listener endpoint is defined using the mandatory parameters `protocol`, `host` and  `path`. Authentication 
+An SMB listener endpoint is defined using the mandatory parameters `protocol`, `host`, and  `path`. Authentication 
 configuration can be done using `secureSocket` and polling interval can be configured using `pollingInterval`. 
 Default polling interval is 60 seconds.
 
 The `fileNamePattern` parameter can be used to define the type of files the SMB listener endpoint will listen to. 
-For instance, if the listener should get invoked for text files, the value `(.*).txt` can be given for the config.
+For instance, if the listener gets invoked for text files, the value `(.*).txt` can be given for the config.
 
 ## Compatibility
 
@@ -39,7 +39,7 @@ For instance, if the listener should get invoked for text files, the value `(.*)
 **SMB Listener Sample**
 
 The SMB Listener can be used to listen to a remote directory. It will keep listening to the specified directory and 
-periodically notify the files that are added to and deleted from the server.
+periodically notify which files are added to and deleted from the server.
 
 ```ballerina
 import ballerina/log;
